@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  payment-sync:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: payment-sync
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - payment-network
+
+networks:
+  payment-network:
+    driver: bridge
